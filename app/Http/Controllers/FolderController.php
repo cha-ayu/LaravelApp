@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-//クラスのインポート
-use App\Folder;                         //add
-use App\Http\Requests\CreateFolder;     //add
+// クラスのインポート
+use App\Folder;                         // フォルダクラス
+use App\Http\Requests\CreateFolder;     // FormRequestクラス
 use Illuminate\Http\Request;
 
 class FolderController extends Controller

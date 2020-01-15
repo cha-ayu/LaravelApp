@@ -35,6 +35,15 @@ return [
 
     'connections' => [
 
+        // メモリ上にテスト用のDBつくる
+        // PHPUnitの設定ファイルにDB_CONNECTION設定を追加
+        'sqlite_testing' => [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ],
+        //
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
