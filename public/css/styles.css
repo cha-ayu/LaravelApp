@@ -5,11 +5,9 @@ body {
   background-color: #f4f7f8;
 }
 
-/* // */
 .navbar {
   margin: 2rem 0 2.5rem 0;
 }
-/* // */
 
 .my-navbar {
   align-items: center;
@@ -31,7 +29,7 @@ body {
 }
 
 .my-navbar-brand:hover,
-a .my-navbar-item:hover {
+a.my-navbar-item:hover {
   color: #fff;
 }
 
