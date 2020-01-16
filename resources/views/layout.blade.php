@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +11,11 @@
 <body>
 <header>
   <nav class="my-navbar">
-    <a href="/" class="may-navbar-brand">ToDo App</a>
+    <a href="#" class="my-navbar-brand">ToDo App</a>
   </nav>
 </header>
 <main>
-  @yield('contents')
+  @yield('content')
 </main>
 @yield('scripts')
 </body>
