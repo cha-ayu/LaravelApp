@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 // クラスのインポート
+use App\User;                           // ユーザークラス
 use App\Folder;                         // フォルダクラス
 use App\Http\Requests\CreateFolder;     // FormRequestクラス
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class FolderController extends Controller
@@ -17,12 +19,12 @@ class FolderController extends Controller
     //引数にインポートしたRequestクラスをいれる(FormRequestのクラスを指定)
     public function create(CreateFolder $request)
     {
-        // 1.モデルクラスのインスタンスを作成する: フォルダモデルのインスタンス作成
+        // モデルクラスのインスタンスを作成する: フォルダモデルのインスタンス作成
         $folder = new Folder();
-        // 2.インスタンスのプロパティに値を代入する: タイトルに入力値を代入
+        // インスタンスのプロパティに値を代入する: タイトルに入力値を代入
         $folder->title = $request->title;
-        // 3.saveメソッドを呼び出す: インスタンスの状態をデータベースに書き込む
-        $folder->save();
+        // ユーザーに紐づけて保存
+        Auth::user()->folders()->save($folder);
 
         //viewではなくredirectメソッドで画面遷移
         return redirect()->route('tasks.index', [

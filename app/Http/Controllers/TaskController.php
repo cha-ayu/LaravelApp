@@ -3,19 +3,22 @@
 namespace App\Http\Controllers;
 
 // クラスのインポート
-use App\Folder;                         // フォルダクラス
-use App\Task;                           // タスククラス
-use App\Http\Requests\CreateTask;       // FormRequestクラス
+use App\User;                       // ユーザークラス
+use App\Folder;                       // フォルダクラス
+use App\Task;                         // タスククラス
+use App\Http\Requests\CreateTask;     // FormRequestクラス
 use App\Http\Requests\EditTask;       // FormRequestクラス
+use Illuminate\Support\Facades\Auth;  // Authクラス
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    
     // インデックスメソッド: {id}と定義→ $id で受け取る
     public function index(int $id)
     {
-        // Folderモデルのallクラスメソッドで全てのフォルダデータをDBから取得
-        $folders = Folder::all();
+        // ユーザーのフォルダを取得する
+        $folders = Auth::user()->folders()->get();
 
         // 選ばれたフォルダを取得
         // フォルダテーブルからIDカラムが一致するデータを返す
